@@ -1,0 +1,32 @@
+﻿@model IEnumerable<HomeWork.Entities.Product>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-primary" role="alert">
+        @TempData["Message"]
+    </div>
+}
+<section class="container bg-light">
+    @foreach (var item in Model)
+    {
+        <section style="width:40%;margin:5px">
+            <h2>Name : @item.Name</h2>
+            <h2>Description : @item.Description</h2>
+            <h2>Price : @item.Price</h2>
+            @if (item.Discount > 0) {
+                <h2>Discount: @item.Discount%</h2>
+            }
+            <a class="btn btn-danger" asp-controller="home" asp-action="delete"
+            asp-route-id="@item.Id"
+            >Delete Employee</a>
+            <a class="btn btn-danger" asp-controller="home" asp-action="edit"
+               asp-route-id="@item.Id">Edit Employee</a>
+        </section>
+    }
+ @*     <a class="btn btn-danger" href="/employee/delete/1">Delete Employee</a> *@ 
+
+
+<employee-list sort="z-a" count="1"></employee-list>
+
+    <a href="/home/add" class="btn btn-outline-success">Add New Employee</a>
+</section>

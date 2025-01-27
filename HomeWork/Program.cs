@@ -13,6 +13,9 @@ namespace HomeWork
     {
         public static void Main(string[] args)
         {
+            Console.OutputEncoding = System.Text.Encoding.Unicode;
+            Console.InputEncoding = System.Text.Encoding.Unicode;
+
             CreateHostBuilder(args).Build().Run();
         }
 
